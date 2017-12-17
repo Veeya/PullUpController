@@ -23,7 +23,7 @@ open class PullUpController: UIViewController {
     private var heightConstraint: NSLayoutConstraint?
     private var panGestureRecognizer: UIPanGestureRecognizer?
 
-    var delegate: PullUpControllerDelegate?
+    open var delegate: PullUpControllerDelegate?
 
     /**
      The desired height in screen units expressed in the pull up controller coordinate system that will be initially showed.
@@ -44,10 +44,10 @@ open class PullUpController: UIViewController {
     /**
      A list of y values, in screen units expressed in the pull up controller coordinate system.
      At the end of the gestures the pull up controller will scroll to the nearest point in the list.
-     
+
      Please keep in mind that this array should contains only sticky points in the middle of the pull up controller's view;
      There is therefore no need to add the fist one (pullUpControllerPreviewOffset), and/or the last one (pullUpControllerPreferredSize.height).
-     
+
      For a complete list of all the sticky points you can use `pullUpControllerAllStickyPoints`.
      */
     open var pullUpControllerMiddleStickyPoints: [CGFloat] {
@@ -88,7 +88,7 @@ open class PullUpController: UIViewController {
 
     /**
      This method will move the pull up controller's view in order to show the provided visible point.
-     
+
      You may use on of `pullUpControllerAllStickyPoints` item to provide a valid visible point.
      - parameter visiblePoint: the y value to make visible, in screen units expressed in the pull up controller coordinate system.
      - parameter completion: The closure to execute after the animation is completed. This block has no return value and takes no parameters. You may specify nil for this parameter.
