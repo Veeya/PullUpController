@@ -7,7 +7,7 @@
 //
 import UIKit
 
-protocol PullUpControllerDelegate {
+public protocol PullUpControllerDelegate {
 
     func willMoveToStickyPoint(_ point: Float)
 
