@@ -13,6 +13,8 @@ public protocol PullUpControllerDelegate {
 
     func didMoveToStickyPoint(_ point: CGFloat)
 
+    func didChangePosition(_ point: CGFloat)
+
 }
 
 open class PullUpController: UIViewController {
@@ -182,6 +184,9 @@ open class PullUpController: UIViewController {
         gestureRecognizer.setTranslation(.zero, in: view)
 
         topConstraint.constant += yTranslation
+
+        let point = (self.parent?.view.frame.height ?? 0.0) - (self.topConstraint?.constant ?? 0.0)
+        delegate?.didChangePosition(point)
 
         if !pullUpControllerIsBouncingEnabled {
             topConstraint.constant = max(topConstraint.constant, parentViewHeight - pullUpControllerPreferredSize.height)
