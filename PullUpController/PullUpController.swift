@@ -248,7 +248,7 @@ open class PullUpController: UIViewController {
         heightConstraint?.constant = pullUpControllerPreferredLandscapeFrame.height
     }
 
-    fileprivate func refreshConstraints(size: CGSize) {
+    open func refreshConstraints(size: CGSize) {
         if size.width > size.height {
             setLandscapeConstraints()
         } else {
