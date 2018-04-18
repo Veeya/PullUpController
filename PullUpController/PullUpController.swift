@@ -7,7 +7,7 @@
 //
 import UIKit
 
-public protocol PullUpControllerDelegate {
+public protocol PullUpControllerDelegate: class {
 
     func willMoveToStickyPoint(_ point: CGFloat)
 
@@ -25,7 +25,7 @@ open class PullUpController: UIViewController {
     private var heightConstraint: NSLayoutConstraint?
     private var panGestureRecognizer: UIPanGestureRecognizer?
 
-    open var delegate: PullUpControllerDelegate?
+    open weak var delegate: PullUpControllerDelegate?
 
     /**
      The desired height in screen units expressed in the pull up controller coordinate system that will be initially showed.
